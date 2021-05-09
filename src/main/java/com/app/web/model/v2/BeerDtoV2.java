@@ -1,5 +1,6 @@
 package com.app.web.model.v2;
 
+import com.app.common.BeerStyleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

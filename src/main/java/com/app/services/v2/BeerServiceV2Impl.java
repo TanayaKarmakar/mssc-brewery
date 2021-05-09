@@ -1,7 +1,7 @@
 package com.app.services.v2;
 
 import com.app.web.model.v2.BeerDtoV2;
-import com.app.web.model.v2.BeerStyleEnum;
+import com.app.common.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

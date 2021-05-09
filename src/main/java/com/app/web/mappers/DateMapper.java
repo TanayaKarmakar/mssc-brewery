@@ -1,5 +1,32 @@
-package com.app.web.mappers;/**
- * @project mssc-brewery
+package com.app.web.mappers;
+
+import org.springframework.stereotype.Component;
+
+import java.sql.Timestamp;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+
+/**
  * @author t0k02w6 on 09/05/21
- */public class DateMapper {
+ * @project mssc-brewery
+ */
+@Component
+public class DateMapper {
+    public OffsetDateTime asOffsetDateTime(Timestamp ts){
+        if (ts != null){
+            return OffsetDateTime.of(ts.toLocalDateTime().getYear(), ts.toLocalDateTime().getMonthValue(),
+                    ts.toLocalDateTime().getDayOfMonth(), ts.toLocalDateTime().getHour(), ts.toLocalDateTime().getMinute(),
+                    ts.toLocalDateTime().getSecond(), ts.toLocalDateTime().getNano(), ZoneOffset.UTC);
+        } else {
+            return null;
+        }
+    }
+
+    public Timestamp asTimestamp(OffsetDateTime offsetDateTime){
+        if(offsetDateTime != null) {
+            return Timestamp.valueOf(offsetDateTime.atZoneSameInstant(ZoneOffset.UTC).toLocalDateTime());
+        } else {
+            return null;
+        }
+    }
 }
